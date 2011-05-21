@@ -13,6 +13,8 @@ public class Wrappers {
 		List list = new ArrayList();
 		list.add(100);
 		
+		method(0);
+		method(new Long(0));
 		method(new Integer(0));
 	}
 	
@@ -21,7 +23,7 @@ public class Wrappers {
 	}
 	
 	static void method(Integer i) {
-		System.out.println("long");
+		System.out.println("Integer");
 	}
 
 }
