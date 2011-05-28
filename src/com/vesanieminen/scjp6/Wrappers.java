@@ -14,6 +14,7 @@ public class Wrappers {
 		list.add(100);
 		
 		method(0);
+		method(0l);
 		method(new Long(0));
 		method(new Integer(0));
 	}
