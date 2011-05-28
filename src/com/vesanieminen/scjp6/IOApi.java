@@ -1,5 +1,9 @@
 package com.vesanieminen.scjp6;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 public class IOApi {
@@ -11,7 +15,20 @@ public class IOApi {
 	static void serializationTest() {
 		Dog dog = new Dog(30, "Spot");
 		System.out.println("The dog before serialization: " + dog.name + " - " + dog.weight);
-		// TODO: serialization and deserialization
+		try {
+			FileOutputStream fs = new FileOutputStream("dog.db");
+			ObjectOutputStream os = new ObjectOutputStream(fs);
+			os.writeObject(dog);
+			os.flush();
+			os.close();
+			
+			FileInputStream fis = new FileInputStream("dog.db");
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			dog = (Dog)ois.readObject();
+			ois.close();
+		}
+		catch (Exception e) { }
+		System.out.println("The dog after serialization: " + dog.name + " - " + dog.weight);
 	}
 
 }
