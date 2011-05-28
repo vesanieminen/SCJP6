@@ -15,6 +15,7 @@ public class Wrappers {
 		
 		method(0);
 		method(0l);
+		method(null);
 		method(new Long(0));
 		method(new Integer(0));
 	}
